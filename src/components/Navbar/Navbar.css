@@ -1,0 +1,64 @@
+.navbar {
+  background-color: #fe2722;
+  border: 1px solid #de2622;
+  border-radius: 6px;
+  padding: 10px;
+  margin-top: 12px;
+  height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: 0.3s;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+}
+.box_katalog {
+  width: 65px;
+  height: 55px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  cursor: pointer;
+  gap: 10px;
+  background-color: #e81711;
+}
+.nav_text {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.inp_flex {
+  width: 750px;
+  height: 50px;
+  background-color: #fff;
+  display: flex;
+  border-radius: 7px;
+  flex: 1;
+  align-items: center;
+}
+.inp_flex input {
+  flex: 1;
+  outline: none;
+  padding: 10px;
+  border-radius: 7px;
+  border: none;
+}
+.inp_flex button {
+  background: #ccff66;
+  color: black;
+  height: 43px;
+  width: 110px;
+  border: 0;
+  border-radius: 20px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+.navbar.shrink {
+  background-color: #f6413e;
+  height: 65px;
+}
