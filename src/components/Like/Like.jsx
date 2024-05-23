@@ -37,15 +37,6 @@ const Wishlist = () => {
                 }}
                 onClick={() => toggleWishlistItem(el)}
               />
-              <PiShoppingCartThin
-                style={{
-                  color: "black",
-                  width: "20",
-                  height: "20",
-                  cursor: "pointer",
-                }}
-                onClick={() => handleAddToCart(el)}
-              />
             </div>
           ))}
         </ul>
