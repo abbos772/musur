@@ -1,17 +1,20 @@
 import React from "react";
+import './Karzinka.css'
 import useCartStore from "../../components/context/cartStore";
 
 const Karzenka = () => {
   const { cart, removeFromCart, decrementCart, addToCart } = useCartStore();
-
+console.log(cart);
   return (
-    <div className="karzenka-container">
-      <h1>Корзинка</h1>
+ <>
+ 
+ 
+ <div className="karzenka  container">
       {cart.length === 0 ? (
-        <p>Корзинка пуста</p>
+        <p style={{textAlign:'center',fontSize:'80px'}}>Корзинка пуста</p>
       ) : (
         <div className="cart-items continer">
-          {cart.map((item) => (
+          {cart?.map((item) => (
             <div key={item.id} className="cart-item">
               <img
                 src={item.images[0]}
@@ -44,6 +47,8 @@ const Karzenka = () => {
         </div>
       )}
     </div>
+ 
+ </>
   );
 };
 

@@ -3,14 +3,12 @@ import "./Products.css";
 import axios from "../api/index";
 import { CiHeart } from "react-icons/ci";
 import { PiShoppingCartThin } from "react-icons/pi";
-import useCartStore from "../context/likeStore";
-
+import useCartStore from "../context/cartStore";
+import useStore from "../context/likeStore";
 const Products = () => {
   const [data, setData] = useState([]);
   const addToCart = useCartStore((state) => state.addToCart);
-  const addToLiked = useCartStore((state) => state.addToLiked);
-  const removeFromLiked = useCartStore((state) => state.removeFromLiked);
-  const likedItems = useCartStore((state) => state.likedItems);
+  const addToLiked = useStore((state) => state.toggleWishlistItem);
 
   useEffect(() => {
     axios
@@ -19,17 +17,8 @@ const Products = () => {
       .catch((error) => console.log("Error:", error));
   }, []);
 
-  const handleAddToCart = (item) => {
-    addToCart(item);
-  };
 
-  const handleToggleLike = (item) => {
-    if (likedItems.find((i) => i.id === item.id)) {
-      removeFromLiked(item.id);
-    } else {
-      addToLiked(item);
-    }
-  };
+
 
   const productItems = data?.map((el) => (
     <div key={el.id} className="product-item">
@@ -46,7 +35,7 @@ const Products = () => {
               height: "20px",
               cursor: "pointer",
             }}
-            onClick={() => handleToggleLike(el)}
+            onClick={() => addToLiked(el)}
           />
           <PiShoppingCartThin
             style={{
@@ -55,7 +44,7 @@ const Products = () => {
               height: "20px",
               cursor: "pointer",
             }}
-            onClick={() => handleAddToCart(el)}
+            onClick={() => addToCart(el)}
           />
         </div>
       </div>
